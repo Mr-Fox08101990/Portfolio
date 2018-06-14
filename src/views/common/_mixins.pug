@@ -1,6 +1,25 @@
 mixin icon(iconName, iconClass)
-  svg(class=`${iconClass}`)
-    use(xlink:href=`/assets/images/icons/sprite.svg#${iconName}`)
+    svg(class=`${iconClass}`)
+        use(xlink:href=`/assets/images/icons/sprite.svg#${iconName}`)
 
 mixin image(imagePath, imageAlt, imageClass)
-  img(src=`/assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`)
+    img(src=`/assets/images/${imagePath}`, alt=`${imageAlt}`, class=`${imageClass}`)
+
+mixin hero(className)
+    section.hero
+        include ../common/header.pug
+        .hero__content
+            if className == 'blog'
+                include ../common/user-blog
+            else
+                include ../common/user
+        .arrow__down
+            a(href="").down-btn.hero__down-btns
+                +icon('arrow_down', 'arrow-down__svg')
+
+mixin nav(className, item, activeItem)
+    nav(class=`${className}`)
+        ul(class=`${className}__list`)
+            each item in items
+                li(class=`${$className}__item`)
+                    a(class=`${className}__link` href='#')= item

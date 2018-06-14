@@ -1,6 +1,48 @@
 extends ../auth.layout.pug
 
 block content
-  .hello-world
-    +icon('check', 'hello-world__block')
-    .inlined-svg
+  .welcome-page
+    .welcome-page__auth
+      .auth-btn
+        a(href="#").auth-btn__link Авторизоваться
+    .welcome-page__content
+      include ../common/user
+      .welcome-page__socials
+        ul.socials
+          each item in socials
+          li.socials__item
+            a(href=`${item[0]}`).socials__link
+              +icon(item[1], 'socials__link-icon')
+        +nav('welcome-nav',[["Мои работы", "works.html"], ["Обо мне", "about.html"], ["Блог", "blog.html"]], 1)
+          a(href=item[1]).welcome-nav__link= item[0]
+      .welcome-page__content.welcome-page__auth
+        form.auth-form#login(action="")
+          .auth-form-title
+            span.auth-form-subtitle авторизуйтесь
+          .auth-form-content
+            .input-wrap
+              .icon-wrap
+                +icon('auth-icon','login')
+              input(type="text" class="auth-form__input" name="userLogin" id="userLogin" value="" placeholder="Логин")
+            .input-wrap
+              .icon-wrap
+                +icon('auth-icon', 'password')
+              input(type="password" class="auth-form__input" name="userPassword" id="userPassword" value="" placeholder="Пароль")
+          .auth-form-capture
+            .checkbox-wrapper
+              input(type="checkbox" class="checkbox" id="checkbox_1")
+              label.checkbox-label(for="checkbox_1") Я человек
+            .capture-question Вы точно не робот?
+              input(type="radio" class="radio" name="answer" value="yes" id="yes")
+              label.radio-label.radio-label_active(for="yes") Да
+              input(type="radio" class="radio" name="answer" value="no" id="no")
+              label.radio-label(for="no") Не уверен
+          .auth-form-buttons
+            a.auth-form__btn(href="#") На главную
+            input(type="submit", class = "auth-form__btn", value="Войти")
+    .welcome-page-footer
+      p &copy Янушевский Денис | создано с любовью в LoftSchool | 2018    
+  
+  //- .hello-world
+  //-   +icon('check', 'hello-world__block')
+  //-   .inlined-svg
