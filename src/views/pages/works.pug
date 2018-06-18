@@ -7,71 +7,101 @@ block scripts
   script(src='works.bundle.js')
 
 block content
-    +hero('works')
+    .main-content
+        .triangle
+        .title-wrapper
+            .title.title_main Мои работы
+            .transparent-title
+                +image('icons/works_header.svg', 'works-header', 'adaptive-pic')
+        .portfolio
+            ul.portfolio__list
+                li.portfolio__item.active
+                    .project-info
+                        .project-info-inner
+                            .title.title_secondary Сайт-портфолио
+                            .project-tools Pug, Sass, Javasсript, Jquery, Gulp 4
+                            a.project-link(href="#" target="_blank")
+                                +icon('link','.link-icon')
+                                span.button-text Посмотреть сайт
+                    .project-image
+                        +image('userfiles/Portfolio.jpg', 'Сайт-портфолио', '.project-pic')
+                
+                li.portfolio__item
+                    .project-info
+                        .project-info-inner
+                            .title.title_secondary Сайт "Коворкинг"
+                            .project-tools HTML, CSS
+                            a.project-link(href="#" target="_blank")
+                                +icon('link','.link-icon')
+                                span.button-text Посмотреть сайт
+                    .project-image
+                        +image('userfiles/Coworking.jpg', 'Коворкинг', '.project-pic')
 
-    section.works
-        .work__title
-            .title__block Мои работы
-        .work__content
-            .work__left-content
-                .work__left-title
-                    span.subtitle сайт школы онлайн образования
-                .work__left-technology
-                    span.subtitle html,css,javascript
-                .work__left-button
-                    a.works__left-btn(href="#")
-                        +icon('link', 'works__left-svg')
-                        span.works__left-btn-text Посмотреть сайт       
-            .work__right-content
-                .slider
-                    .slider__main
-                        .slider__pic-wrap
-                            img.slider__pic
-                    .slider__prev
-                        .slider__pic-wrap
-                            img.slider__pic
-                            +icon('portfolio_arrow_down', 'slider__prev-svg')
-                    .slider__next
-                        .slider__pic-wrap
-                            img.slider__pic
-                            +icon('portfolio_arrow_up', 'slider__next-svg')
-    section.reviews
-        .reviews__title
-            span.subtitle что обо мне говорят
-        .reviews__content
-            .reviews__block-left
-                .block__tilda-image
-                .block__reviews-autor
-                    .autor-talk
-                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                    .about-autor
-                        .autor-avatar
-                            +image('dkoval','Дмитрий Ковальчук', 'autor-img')
-                        .autor-about
-                            span.autor-title Дмитрий Ковальчук
-                            span.autor-subtitle &mdash; основатель Loftschool
-            .reviews__block-right
-                .block__tilda-image
-                .block__reviews-autor
-                    .autor-talk
-                        p Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
-                    .about-autor
-                        .autor-avatar
-                            +image('vsaban','Владимир Сабанцев', 'autor-img')
-                        .autor-about
-                            span.autor-title Владимир Сабанцев
-                            span.autor-subtitle &mdash; преподаватель
-        .feedback
-            form.form(action="")
-                .form__title 
-                    span.form-subtitle связаться со мной
-                .form__content
-                    input(type="text" class= "form__input" placeholder = "Имя" id = "username" name = "username")
-                    input(type="text" class= "form__input" placeholder = "email" id = "email" name = "email")
-                    textarea(type="text" class= "form__text" placeholder = "Ваше сообщение" name="message")
-                .form__buttons
-                    input(type="submit", class = "form__btn", value="Отправить")
-                    input(type="reset", class = "form__btn", value="Очистить")
-    .arrow__up
-        a(href="").up-btn.reviews__up-btns
-            +icon('arrow_down', 'arrow-down__svg')                 
+                li.portfolio__item
+                    .project-info
+                        .project-info-inner
+                            .title.title_secondary Лендинг "Бургерная"
+                            .project-tools HTML, CSS, Sass, Javasсript, Jquery
+                            a.project-link(href="#" target="_blank")
+                                +icon('link','.link-icon')
+                                span.button-text Посмотреть сайт
+                    .project-image
+                        +image('userfiles/Burger.jpg', 'Сайт-портфолио', '.project-pic')
+                    
+            ul.slider__dots
+                
+            .slider__controls
+                a.slider__controls-btn.slider__controls-btn_next
+                    +icon('arrow_down', '.social-icon.social-icon_green')
+                a.slider__controls-btn.slider__controls-btn_prev
+                    +icon('arrow_down', '.social-icon.social-icon_green')
+        
+        .feedback-wrapper
+            .feedback
+                .title-wrapper
+                    .title.title_main Что обо мнe говорят
+                    .transparent-title
+                        +image('icons/about_header.svg', 'about-header', 'adaptive-pic')
+                .feedback__reviews
+                    ul.reviews__list
+                        li.reviews__item
+                            blockquote.review-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                            .review-author
+                                .user-avatar: 
+                                    +image('userfiles/kd.png', 'Ковальчук Дмитрий', '.user-pic')
+                                .review-author-inner
+                                    cite.review-author-name Ковальчук Дмитрий
+                                    .review-author-position основатель Loftschool
+                        li.reviews__item
+                            blockquote.review-text Этот код выдержет любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах!
+                            .review-author
+                                .user-avatar: 
+                                    +image('userfiles/vsab.jpg', 'Владимир Сабанцев', '.user-pic')
+                                .review-author-inner
+                                    cite.review-author-name Владимир Сабанцев
+                                    .review-author-position преподаватель
+                .feedback__form-wrapper
+                    .feedback__form
+                    .feedback__form-inner
+                        .title.title_secondary Связаться со мной
+                        form.form#contact-me
+                            .input-wrapper
+                                input(type="text" class="form__input" name="userName" id="userName" value="" placeholder="Имя")
+                                .tooltip-wrapper
+                                    .tooltip.tooltip-bottom
+                                        span.tooltip-text Вы не ввели имя
+                            .input-wrapper
+                                input(type="email" class="form__input" name="userEmail" id="userEmail" value="" placeholder="Email")
+                                .tooltip-wrapper
+                                    .tooltip.tooltip-bottom
+                                        span.tooltip-text Вы не ввели email
+                            .input-wrapper
+                                textarea(name="message" id="message" class="form__input" cols="40" rows="6" placeholder="Ваше сообщение")
+                                .tooltip-wrapper
+                                    .tooltip.tooltip-bottom
+                                        span.tooltip-text Вы не ввели сообщение
+                            input(type="submit" class="form__btn form__btn_submit" value="Отправить")
+                            input(type="reset" class="form__btn form__btn_reset" value="Очистить")
+                a.arrow-up-link(href="#")
+                    .arrow_up
+                        +icon('arrow_down', '.social-icon.social-icon_white')

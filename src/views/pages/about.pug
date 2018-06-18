@@ -5,69 +5,84 @@ block variables
 
 block scripts
   script(src='about.bundle.js')
+  script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBBtugw-3OSenC2dwsWf6GmRPBNj01IKsU&callback=initMap' async defer)
 
 block content
-  +hero('about')
- 
-  section.about
-    .about__left
-      .about__left-title
-        .block-title Обо мне
-      .about__left-content
-        .block-info
-          .block-info__image
-            img.block-info__avatar
-          .block-info__about-user
-            .block-info__subtitle Кто я
-            .block-info__text-content
-              p Я веб разработчик из Волгограда. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите,как тут всё классно и красиво!
-
-    .about__right
-      .about__right-title
-        .block-title Чем я могу быть вам полезен
-      .about__right-text-content
-        p Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
-      .about__right-content
-        - 
-          var skills = [
-            ['Frontend', [['Html5', 30], ['css3', 50], ['javascript', 70]]],
-            ['Backend', [['Html5', 30], ['css3', 50], ['javascript', 70]]],
-            ['Workflow', [['Html5', 30], ['css3', 50], ['javascript', 70]]],
-          ]
-
-        ul.skills-list
-          each skillsrow in skills
-            li.skills-list__item.skills-row
-              .skills-row__title #{skillsrow[0]}
-              ul.skills-row__list
-                each skill in skillsrow[1]
-                  li.skills-row__item
-                    figure.skill(data-percents="70")
-                      svg(viewBox="0 0 100 100" preserveAspectRatio="none").skill__figure
-                        circle(cx="50" cy="50" r="40").skill__circle.skill__circle_under
-                        circle(cx="50" cy="50" r="40").skill__circle.skill__circle_above
-                      .skill__title #{skill[0]}   
-  section.map
-    .map-block
-      #ya-map.map-image
-    .map-data-block
-      .contacts__title
-        .contacts__subtitle Контакты
-      .contacts__data
-        -
-          var contacts = [
-            ['skype', 'pluto08101990@gmail.com'],
-            ['mail', 'pluto08101990@gmail.com'],
-            ['phone', '+7 (919) 797-15-24'],
-            ['map_adress', 'г.Волгоград, б-р. 30 лет Победы, д.42, кв.97']
-          ]
-        ul.contacts__list
-          each item in contacts
-            li.contacts__item
-              .contacts__icon
-                a(href=`${item[0]}`).socials__link
-                  +icon(item[1], 'socials__link-icon')      
-    
-
-  //- h1 Страничка "Обо Мне"  
+    .main-content
+        .triangle
+        .container
+            .left-column
+                .column-container
+                    .column-container-inner
+                        .title.title_main Oбо мне
+                        .transparent-title
+                            +image('icons/about_header.svg', 'about-header', 'adaptive-pic')
+                    .column-container-inner
+                        .photo-wrapper
+                            +image('userfiles/my_photo.jpg', 'Моё фото', '.adaptive-pic')
+                        .title.title_secondary Кто я
+                        .author-info
+                            p.author-info__text Я веб разработчик из Волгограда. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                            p.author-info__text Этот сайт я сделал в рамках обучения в Школе онлайн-образования LoftSchool. 
+                            
+            .right-column
+                .column-container
+                    .title.title_secondary Чем я могу быть вам полезен
+                    .skills
+                        .skills__text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+                        .skills__title Frontend
+                        ul.skills__list
+                            li.skills__item
+                                input(type="text" value="90" class='dial')
+                                span.dial-text HTML5 & CSS3
+                            li.skills__item
+                                input(type="text" value="60" class='dial')
+                                span.dial-text JavaScript & jQuery
+                            li.skills__item
+                                input(type="text" value="70" class='dial')
+                                span.dial-text Pug (ex-Jade)
+                            li.skills__item
+                                input(type="text" value="80" class='dial')
+                                span.dial-text SASS
+                        .skills__title Backend
+                        ul.skills__list
+                            li.skills__item
+                                input(type="text" value="10" class='dial')
+                                span.dial-text PHP
+                            li.skills__item
+                                input(type="text" value="10" class='dial')
+                                span.dial-text mySQL
+                            li.skills__item
+                                input(type="text" value="20" class='dial')
+                                span.dial-text Node.js & npm
+                            
+                        .skills__title Workflow
+                        ul.skills__list
+                            li.skills__item
+                                input(type="text" value="80" class='dial')
+                                span.dial-text Git
+                            li.skills__item
+                                input(type="text" value="30" class='dial')
+                                span.dial-text Gulp
+        
+        .contacts-wrapper
+            #myGoogleMap.map-container
+            .contacts
+                .title.title_secondary Контакты
+                ul.contacts__list
+                    li.contacts__item
+                        a(class="contacts__link" href="skype:pluto08101990@gmail.com?call")
+                            +icon('skype', '.contact-icon')
+                            span.contacts__text pluto08101990@gmail.com
+                    li.contacts__item
+                        a(class="contacts__link" href="mailto:pluto08101990@gmail.com")
+                            +icon('envelope', '.contact-icon')
+                            span.contacts__text pluto08101990@gmail.com
+                    li.contacts__item
+                        a(class="contacts__link" href="skype:+79197971524?call")
+                            +icon('phone', '.contact-icon')
+                            span.contacts__text +7 (919) 797-15-24
+                    li.contacts__item
+                        a(class="contacts__link")
+                            +icon('map_marker', '.contact-icon')
+                            span.contacts__text г.Волгоград, б-р. 30 лет Победы, д.42, кв.97
