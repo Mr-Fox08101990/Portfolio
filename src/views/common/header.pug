@@ -1,0 +1,44 @@
+include ./variables.pug
+
+.page-wrapper
+  
+  .fullscreen-menu
+    ul.fullscreen-menu__list
+      li.fullscreen-menu__item
+        a.fullsreen-menu__link(href="works.html")
+          .title.title_main Мои работы
+      li.fullscreen-menu__item
+        a.fullsreen-menu__link(href="blog.html")
+          .title.title_main Блог
+      li.fullscreen-menu__item
+        a.fullsreen-menu__link(href="about.html")
+          .title.title_main Обо мне
+      li.fullscreen-menu__item
+        a.fullsreen-menu__link(href="index.html")
+          .title.title_main Авторизация
+  
+  header.header
+    .transparent-layer
+      .header-links
+        ul.socials
+          li.socials_item
+            a.social-link(href="https://vk.com/mr.fox_08101990" target="_blank")
+              +icon('vk','.social-icon.social-icon_white')
+          li.socials_item
+            a.social-link(href="https://github.com/Mr-Fox08101990" target="_blank")
+              +icon('github','.social-icon.social-icon_white')
+          li.socials_item
+            a.social-link(href="https://www.linkedin.com/in/денис-янушевский-665298153" target="_blank")
+              +icon('in','.social-icon.social-icon_white')
+        a.menu-link(href="#")
+          span.menu-link__line
+      .user-avatar: 
+        img.user-pic(src="assets/images/userfiles/my_photo.jpg" alt='Янушевский Денис')
+      .author
+        .author__name Янушевский Денис
+        .author__site Личный сайт веб-разработчика
+      .transparent-title
+        img(class="adaptive-pic" src="assets/images/icons/portfolio_header.png")
+      a.arrow-down-link(href="#")
+        .arrow_down
+          +icon('arrow_down', '.social-icon.social-icon_white')

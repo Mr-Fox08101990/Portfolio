@@ -1,2 +1,23 @@
+include ../common/variables.pug
+
 footer.footer
-  h2 Copyright &copy;
+  .footer-links
+    nav.nav-links
+      a.nav-link(href="works.html") Мои работы
+      a.nav-link(href="about.html") Обо мне
+      a.nav-link(href="blog.html") Блог
+      a.nav-link(href="index.html") Авторизация
+    ul.round-socials
+      li.round-sosials_item
+        a.social-link(href="https://www.linkedin.com/in/денис-янушевский-665298153" target="_blank")
+          +icon('in_round','.social-icon.social-icon_white')
+      li.round-sosials_item
+        a.social-link(href="https://github.com/Mr-Fox08101990" target="_blank")
+          +icon('github_round','.social-icon.social-icon_white')
+      li.round-sosials_item
+        a.social-link(href="https://vk.com/mr.fox_08101990" target="_blank")
+          +icon('vk_round','.social-icon.social-icon_white')
+  .footer-text_wrapper
+    .footer-text 
+      i Я веб-разработчик из Волгограда, и этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+    .copyright &copy Янушевский Денис | создано с любовью в LoftSchool | 2018

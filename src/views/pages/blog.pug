@@ -1,0 +1,45 @@
+extends ../main.layout.pug
+
+block variables
+  - var title = 'Блог'
+
+block scripts
+  script(src='blog.bundle.js')
+
+block content
+    .title-wrapper
+        .title.title_main Блог
+        .subheading Статьи, которые я написал
+        .transparent-title
+            +image('image/blog_header.svg', 'adaptive-pic')
+        .main-content
+            .triangle
+            .container
+                aside.sidebar
+                    button.sidebar-toggle
+                        span.sidebar-toggle__arrow.sidebar-toggle__arrow_right
+                            +icon('arrow_down','.social-icon.social-icon_white')
+                    ul.sidebar__list
+                        li.sidebar__item
+                            a.sidebar__link(href="#article_3") Продвинутый курс по веб-разработке: Начало...
+                        li.sidebar__item
+                            a.sidebar__link(href="#article_2") Веб-разработка для начинающих: Начало...
+                        li.sidebar__item
+                            a.sidebar__link(href="#article_1") Основы веб-разработки: Начало...
+                section.articles
+                    ul.articles__list
+                        li.articles__item: a(name="article_3")
+                            h2.article-title Продвинутый курс по веб-разработке: Начало...
+                            time.article-time 04 июня 2018
+                            article.article
+                                p.article-text "Продвинутый курс по веб-разработке" от <a href="https://loftschool.com" target='_blank' class="text-link"> Loftschool </a>. 2 месяца интенсива, куча выданных методичек, многочасовые вебинары, еженедельные дедлайны, групповые и личные созвоны с наставником, постоянные вопросы-ответы в групповом Slack-чате и многое другое - это такой драйв и хардкор. 
+                        li.articles__item: a(name="article_2")
+                            h2.article-title Веб-разработка для начинающих: Начало...
+                            time.article-time 23 апреля 2018
+                            article.article
+                                p.article-text "Веб-разработка для начинающих" от <a href="https://loftschool.com" target='_blank' class="text-link"> Loftschool </a>. 2 месяца интенсива, куча выданных методичек, многочасовые вебинары, еженедельные дедлайны, групповые и личные созвоны с наставником, постоянные вопросы-ответы в групповом Slack-чате и многое другое - это такой драйв и хардкор.
+                        li.articles__item: a(name="article_1")
+                            h2.article-title Основы веб-разработки: Начало...
+                            time.article-time 13 марта 2018
+                            article.article
+                                p.article-text "Основы веб-разработки" от <a href="https://loftschool.com" target='_blank' class="text-link"> Loftschool </a>. 2 месяца интенсива, куча выданных методичек, многочасовые вебинары, еженедельные дедлайны, групповые и личные созвоны с наставником, постоянные вопросы-ответы в групповом Slack-чате и многое другое - это такой драйв и хардкор.
